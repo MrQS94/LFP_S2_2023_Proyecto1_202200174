@@ -9,7 +9,7 @@ if ruta_proyecto not in sys.path:
 from package.Abstract import Expresion
 import math
 
-class Aritmetica(Expresion):
+class Arit(Expresion):
     def __init__(self, left, right, valor, row, column):
         self.left = left
         self.right = right
@@ -51,7 +51,7 @@ class Aritmetica(Expresion):
     def get_row(self):
         return super().get_row()
     
-class Trigonometria(Expresion):
+class Trigo(Expresion):
     def __init__(self, left, valor, row, column):
         self.left = left
         self.valor = valor
