@@ -1,18 +1,36 @@
 {
     "operaciones": [
         {
-            "operacion": "suma",
-            "valor1": 4.5,
-            "valor2": 5.32
+            "operacion": "resta",
+            "valor1": 6.5,
+            "valor2": 3.5
         },
         {
-            "operacion": "resta",
-            "valor1": 4.5,
+            "operacion": "multiplicacion",
+            "valor1": [
+                {
+                    "operacion": "potencia",
+                    "valor1": 2,
+                    "valor2": [
+                        {
+                            "operacion": "raiz",
+                            "valor1": 9,
+                            "valor2": 2
+                        }
+                    ]
+                }
+            ],
             "valor2": [
                 {
                     "operacion": "potencia",
-                    "valor1": 10,
-                    "valor2": 3
+                    "valor1": 2,
+                    "valor2": [
+                        {
+                            "operacion": "raiz",
+                            "valor1": 9,
+                            "valor2": 2
+                        }
+                    ]
                 }
             ]
         },
@@ -27,22 +45,41 @@
             "valor2": 5.32
         },
         {
-            "operacion": "multiplicacion",
-            "valor1": 7,
-            "valor2": 3
-        },
-        {
-            "operacion": "division",
-            "valor1": 15,
-            "valor2": 3
+            "operacion": "resta",
+            "valor1": [
+                {
+                    "operacion": "division",
+                    "valor1": 500,
+                    "valor2": [
+                        {
+                            "operacion": "division",
+                            "valor1": 10,
+                            "valor2": 5
+                        }
+                    ]
+                }
+            ],
+            "valor2": [
+                {
+                    "operacion": "multiplicacion",
+                    "valor1": 10,
+                    "valor2": [
+                        {
+                            "operacion": "multiplicacion",
+                            "valor1": 3,
+                            "valor2": 5
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "configuraciones":[
         {
-            "texto": "Operaciones 2",
-            "fondo": "amarillo",
-            "fuente": "negro",
-            "forma": "ovalo"
+            "texto": "Operaciones",
+            "fondo": "morado",
+            "fuente": "azul",
+            "forma": "cuadrado"
         }
     ]
 }

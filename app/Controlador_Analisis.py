@@ -6,7 +6,7 @@ ruta_proyecto = os.path.abspath(os.path.join(ruta_actual, '..'))
 if ruta_proyecto not in sys.path:
     sys.path.append(ruta_proyecto)
 
-from package.Abstract import Error, Lexema, Valor, Analisis
+from package.Metodos import Error, Lexema, Valor, Analisis
 from package.Operaciones import Arit, Trigo
 
 class Analizar():
