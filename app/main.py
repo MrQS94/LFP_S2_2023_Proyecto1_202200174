@@ -1,4 +1,4 @@
-from Controlador import Controlador
+from Controlador_Interfaz import Controlador
 
 controlador_handler = Controlador()
 

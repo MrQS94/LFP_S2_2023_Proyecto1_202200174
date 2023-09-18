@@ -1,13 +1,5 @@
-import sys
 import os
-
-ruta_actual = os.path.dirname(__file__)
-ruta_proyecto = os.path.abspath(os.path.join(ruta_actual, '..'))
-if ruta_proyecto not in sys.path:
-    sys.path.append(ruta_proyecto)
-
-from package.Metodos import Error, Lexema, Valor, Analisis
-from package.Operaciones import Arit, Trigo
+from Modelo import Error, Lexema, Valor, Analisis, Arit, Trigo
 
 class Analizar():
     def __init__(self):
