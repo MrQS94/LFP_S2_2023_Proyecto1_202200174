@@ -36,13 +36,13 @@ class Analizar():
         valor2 = ''
         while self.list_lexemas:
             lexema = self.list_lexemas.pop(0)
-            if lexema.operacion(None) == 'operacion':
+            if lexema.operacion(None).lower() == 'operacion':
                 operacion = self.list_lexemas.pop(0)
-            elif lexema.operacion(None) == 'valor1':
+            elif lexema.operacion(None).lower() == 'valor1':
                 valor1 = self.list_lexemas.pop(0)
                 if valor1.operacion(None) == '[':
                     valor1 = self.operacion_valores()
-            elif lexema.operacion(None) == 'valor2':
+            elif lexema.operacion(None).lower() == 'valor2':
                 valor2 = self.list_lexemas.pop(0)
                 if valor2.operacion(None) == '[':
                     valor2 = self.operacion_valores()
@@ -55,7 +55,7 @@ class Analizar():
     def lexema_config(self):
         is_configuracion = False
         for i in range(len(self.list_lexemas)):
-            if self.list_lexemas[i].operacion(None) == 'configuraciones':
+            if self.list_lexemas[i].operacion(None) == 'Configuraciones':
                 is_configuracion = True
                 
         
@@ -66,11 +66,11 @@ class Analizar():
             lexema = self.list_lexemas[i]
             if lexema.operacion(None) == 'texto':
                 self.list_graphviz.append(self.list_lexemas[i + 1].operacion(None))
-            elif lexema.operacion(None) == 'fondo':
+            elif lexema.operacion(None) == 'color-fondo-nodo':
                 self.list_graphviz.append(self.list_lexemas[i + 1].operacion(None))
-            elif lexema.operacion(None) == 'fuente':
+            elif lexema.operacion(None) == 'color-fuente-nodo':
                 self.list_graphviz.append(self.list_lexemas[i + 1].operacion(None))
-            elif lexema.operacion(None) == 'forma':
+            elif lexema.operacion(None) == 'forma-nodo':
                 self.list_graphviz.append(self.list_lexemas[i + 1].operacion(None))
 
     def opciones_config(self, no_nodo, identificador, etiqueta, objeto):
@@ -158,16 +158,16 @@ class Analizar():
         body = ''
         if objeto:
             if type(objeto) == Valor:
-                body += f'Nodo_{no_nodo}{identificador}{etiqueta}[label="{objeto.operacion(None)}", fillcolor={color_fondo}, fontcolor={color_fuente}, shape={forma}, style=filled];\n'
+                body += f'Nodo_{no_nodo}{identificador}{etiqueta}[label="{round(objeto.operacion(None), 2)}", fillcolor={color_fondo}, fontcolor={color_fuente}, shape={forma}, style=filled];\n'
 
             if type(objeto) == Trigo:
-                body += f'Nodo_{no_nodo}{identificador}{etiqueta}[label="{objeto.valor.lexema}\\n{objeto.operacion(None)}", fillcolor={color_fondo}, fontcolor={color_fuente}, shape={forma}, style=filled]\n'
+                body += f'Nodo_{no_nodo}{identificador}{etiqueta}[label="{objeto.valor.lexema}\\n{round(objeto.operacion(None), 2)}", fillcolor={color_fondo}, fontcolor={color_fuente}, shape={forma}, style=filled]\n'
                 
                 body += self.opciones_config(no_nodo, identificador + 1, etiqueta + '_angulo', objeto.left)
                 body += f'Nodo_{no_nodo}{identificador}{etiqueta} -> Nodo_{no_nodo}{identificador + 1}{etiqueta}_angulo;\n'
             
             if type(objeto) == Arit:
-                body += f'Nodo_{no_nodo}{identificador}{etiqueta}[label="{objeto.valor.lexema}\\n{objeto.operacion(None)}", fillcolor={color_fondo}, fontcolor={color_fuente}, shape={forma}, style=filled];\n'
+                body += f'Nodo_{no_nodo}{identificador}{etiqueta}[label="{objeto.valor.lexema}\\n{round(objeto.operacion(None), 2)}", fillcolor={color_fondo}, fontcolor={color_fuente}, shape={forma}, style=filled];\n'
                 
                 body += self.opciones_config(no_nodo, identificador + 1, etiqueta + '_valor1', objeto.left)
                 body += f'Nodo_{no_nodo}{identificador}{etiqueta} -> Nodo_{no_nodo}{identificador + 1}{etiqueta}_valor1;\n'

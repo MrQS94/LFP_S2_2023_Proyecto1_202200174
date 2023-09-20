@@ -109,22 +109,22 @@ class Arit(Expresion):
         
         if right_valor is not None:
             right_valor = self.right.operacion(arbol)
-            
-        if self.valor.operacion(arbol) == 'suma':
+        
+        if self.valor.operacion(arbol) == 'Suma':
             return left_valor + right_valor
-        elif self.valor.operacion(arbol) == 'resta':
+        elif self.valor.operacion(arbol) == 'Resta':
             return left_valor - right_valor
-        elif self.valor.operacion(arbol) == 'multiplicacion':
+        elif self.valor.operacion(arbol) == 'Multiplicacion':
             return left_valor * right_valor
-        elif self.valor.operacion(arbol) == 'division':
+        elif self.valor.operacion(arbol) == 'Division':
             return left_valor / right_valor
-        elif self.valor.operacion(arbol) == 'potencia':
+        elif self.valor.operacion(arbol) == 'Potencia':
             return left_valor ** right_valor
-        elif self.valor.operacion(arbol) == 'raiz':
+        elif self.valor.operacion(arbol) == 'Raiz':
             return left_valor ** (1 / right_valor)
-        elif self.valor.operacion(arbol) == 'inverso':
+        elif self.valor.operacion(arbol) == 'Inverso':
             return (1 / left_valor)
-        elif self.valor.operacion(arbol) == 'mod':
+        elif self.valor.operacion(arbol) == 'Mod':
             return left_valor % right_valor
         else:
             return None
@@ -144,15 +144,16 @@ class Trigo(Expresion):
     def operacion(self, arbol):
         left_valor = ''
         
+        self.valor.operacion(arbol).lower()
         if self.left is not None:
             left_valor = self.left.operacion(arbol)
-        if self.valor.operacion(arbol) == 'seno':
+        if self.valor.operacion(arbol) == 'Seno':
             op_ = math.sin(math.radians(left_valor))
             return round(op_, 2)
-        elif self.valor.operacion(arbol) == 'coseno':
+        elif self.valor.operacion(arbol) == 'Coseno':
             op_ = math.cos(math.radians(left_valor))
             return round(op_, 2)
-        elif self.valor.operacion(arbol) == 'tangente':
+        elif self.valor.operacion(arbol) == 'Tangente':
             op_ = math.tan(math.radians(left_valor))
             return round(op_, 2)
         else:
